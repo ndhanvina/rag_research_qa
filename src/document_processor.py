@@ -1,6 +1,8 @@
 from typing import List
 from langchain_community.document_loaders import DirectoryLoader, PyMuPDFLoader
 from .config import Config
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_core import Document
 
 class DocumentProcessor:
     @staticmethod
@@ -20,6 +22,6 @@ class DocumentProcessor:
         splitter = RecursiveCharacterTextSplitter(
             chunk_size = Config.CHUNK_SIZE,
             chunk_overlap = Config.CHUNK_OVERLAP,
-            separators = ["/n/n", "/n"," ", ""]
+            separators = ["\n\n", "\n"," ", ""]
         )
-        
+        return splitter.split_documents(docs)

@@ -1,0 +1,7 @@
+langchain
+langchain_community
+langchain_chroma
+pymupdf
+sentence_transformers
+chromadb
+langchain_ollama
